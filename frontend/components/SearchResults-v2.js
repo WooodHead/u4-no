@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { updateSearchPageNum } from '../helpers/redux-store';
 import { Link } from '../routes';
 import { ArrowRightSmall } from '../components/icons';
-import format from 'date-fns/format';
+import { format, parseISO  } from 'date-fns';
 import { SearchResultsSortingSelect } from '../components';
 
 const classes = BEMHelper({
@@ -131,7 +131,7 @@ const SearchResult = props => {
           </a>
         </Link>
         <br />
-        {utcDate && <p {...classes('items-date')}>{format(utcDate, 'D MMM YYYY')}</p>}
+        {utcDate && <p {...classes('items-date')}>{format(parseISO(utcDate), 'd MMM yyyy')}</p>}
         <p {...classes('lead-text')}>
           <Highlight highlight={content} fallback={standfirst} />
         </p>

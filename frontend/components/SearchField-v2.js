@@ -66,7 +66,7 @@ class SearchFieldV2 extends Component {
     }
   }
 
-  updateSearch({ urlUpdateType, value }) {
+  updateSearch({ urlUpdateType, value = '' }) {
     this.setState(
       {
         // Prevent loading indicator from showing before search has been made.
