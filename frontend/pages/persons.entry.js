@@ -7,7 +7,7 @@ import BreadCrumb from '../components/BreadCrumb';
 import DataLoader from '../helpers/data-loader';
 import BlockContent from '@sanity/block-content-to-react';
 import serializers from '../components/serializers';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import uniq from 'lodash/uniq';
 import moment from 'moment';
 
@@ -109,7 +109,7 @@ const CoursesAndWorkshops = ({ courses }) => (
                   </Link>
                   {course.startDate && (
                     <p {...classesSearch('items-date')}>
-                      {format(course.startDate.utc, 'D MMM YYYY')}
+                      {format(parseISO(course.startDate.utc), 'd MMM yyyy')}
                     </p>
                   )}
                   <p {...classesSearch('lead-text')}>{course.lead}</p>
@@ -159,7 +159,7 @@ const RecentWork = ({ articles }) => (
                     </Link>
                     {article.date && (
                       <p {...classesSearch('items-date')}>
-                        {format(article.date.utc, 'D MMM YYYY')}
+                        {format(parseISO(article.date.utc), 'd MMM yyyy')}
                       </p>
                     )}
                     <p {...classesSearch('lead-text')}>
